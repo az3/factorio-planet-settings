@@ -1,8 +1,8 @@
 data:extend({
-    -- START cloudiness
+    -- cloudiness
     {
         type = "double-setting",
-        name = "cloudiness_nauvis",
+        name = "ps_cloudiness_nauvis",
         order = "ps01",
         setting_type = "startup",
         default_value = 0.5,
@@ -10,7 +10,7 @@ data:extend({
         maximum_value = 1,
     },{
         type = "double-setting",
-        name = "cloudiness_vulcanus",
+        name = "ps_cloudiness_vulcanus",
         order = "ps02",
         setting_type = "startup",
         default_value = 0.5,
@@ -18,7 +18,7 @@ data:extend({
         maximum_value = 1,
     },{
         type = "double-setting",
-        name = "cloudiness_gleba",
+        name = "ps_cloudiness_gleba",
         order = "ps03",
         setting_type = "startup",
         default_value = 0.6,
@@ -26,7 +26,7 @@ data:extend({
         maximum_value = 1,
     },{
         type = "double-setting",
-        name = "cloudiness_fulgora",
+        name = "ps_cloudiness_fulgora",
         order = "ps04",
         setting_type = "startup",
         default_value = 0.05,
@@ -34,12 +34,203 @@ data:extend({
         maximum_value = 1,
     },{
         type = "double-setting",
-        name = "cloudiness_aquilo",
+        name = "ps_cloudiness_aquilo",
         order = "ps05",
         setting_type = "startup",
         default_value = 0.32,
         minimum_value = 0,
         maximum_value = 1,
     },
-
+    -- rotation_seconds
+    {
+        type = "double-setting",
+        name = "ps_rotation_seconds_nauvis",
+        order = "ps11",
+        setting_type = "startup",
+        default_value = -660,
+    },{
+        type = "double-setting",
+        name = "ps_rotation_seconds_vulcanus",
+        order = "ps12",
+        setting_type = "startup",
+        default_value = -283.26180257511,
+    },{
+        type = "double-setting",
+        name = "ps_rotation_seconds_gleba",
+        order = "ps13",
+        setting_type = "startup",
+        default_value = -1100,
+    },{
+        type = "double-setting",
+        name = "ps_rotation_seconds_fulgora",
+        order = "ps14",
+        setting_type = "startup",
+        default_value = -366.66666666667,
+    },{
+        type = "double-setting",
+        name = "ps_rotation_seconds_aquilo",
+        order = "ps15",
+        setting_type = "startup",
+        default_value = -1466.6666666667,
+    },
+    -- atmosphere_color
+    {
+        type = "color-setting",
+        name = "ps_atmosphere_color_nauvis",
+        order = "ps21",
+        setting_type = "startup",
+        default_value = {0.055, 0.09, 0.11, 0.1},
+    },{
+        type = "color-setting",
+        name = "ps_atmosphere_color_vulcanus",
+        order = "ps22",
+        setting_type = "startup",
+        default_value = {0.072, 0.073, 0.067, 0.1},
+    },{
+        type = "color-setting",
+        name = "ps_atmosphere_color_gleba",
+        order = "ps23",
+        setting_type = "startup",
+        default_value = {0.053, 0.060, 0.03715, 0.1},
+    },{
+        type = "color-setting",
+        name = "ps_atmosphere_color_fulgora",
+        order = "ps24",
+        setting_type = "startup",
+        default_value = {0.07, 0.057, 0.075, 0.1},
+    },{
+        type = "color-setting",
+        name = "ps_atmosphere_color_aquilo",
+        order = "ps25",
+        setting_type = "startup",
+        default_value = {0.075, 0.065, 0.133, 0.1},
+    },
+    -- cloud_flow_intensity
+    {
+        type = "double-setting",
+        name = "ps_cloud_flow_intensity_nauvis",
+        order = "ps31",
+        setting_type = "startup",
+        default_value = 0.5,
+    },{
+        type = "double-setting",
+        name = "ps_cloud_flow_intensity_vulcanus",
+        order = "ps32",
+        setting_type = "startup",
+        default_value = 0.8,
+    },{
+        type = "double-setting",
+        name = "ps_cloud_flow_intensity_gleba",
+        order = "ps33",
+        setting_type = "startup",
+        default_value = 0.8,
+    },{
+        type = "double-setting",
+        name = "ps_cloud_flow_intensity_fulgora",
+        order = "ps34",
+        setting_type = "startup",
+        default_value = 1.5,
+    },{
+        type = "double-setting",
+        name = "ps_cloud_flow_intensity_aquilo",
+        order = "ps35",
+        setting_type = "startup",
+        default_value = 0.8,
+    },
+    -- cloud_panning_rate
+    {
+        type = "double-setting",
+        name = "ps_cloud_panning_rate_nauvis",
+        order = "ps41",
+        setting_type = "startup",
+        default_value = -0.1,
+    },{
+        type = "double-setting",
+        name = "ps_cloud_panning_rate_vulcanus",
+        order = "ps42",
+        setting_type = "startup",
+        default_value = -0.025,
+    },{
+        type = "double-setting",
+        name = "ps_cloud_panning_rate_gleba",
+        order = "ps43",
+        setting_type = "startup",
+        default_value = -0.01,
+    },{
+        type = "double-setting",
+        name = "ps_cloud_panning_rate_fulgora",
+        order = "ps44",
+        setting_type = "startup",
+        default_value = 0.1,
+    },{
+        type = "double-setting",
+        name = "ps_cloud_panning_rate_aquilo",
+        order = "ps45",
+        setting_type = "startup",
+        default_value = 0.2,
+    },
+    -- surface_vertical_offset
+    {
+        type = "double-setting",
+        name = "ps_surface_vertical_offset_nauvis",
+        order = "ps51",
+        setting_type = "startup",
+        default_value = 0.1,
+    },{
+        type = "double-setting",
+        name = "ps_surface_vertical_offset_vulcanus",
+        order = "ps52",
+        setting_type = "startup",
+        default_value = 0.12,
+    },{
+        type = "double-setting",
+        name = "ps_surface_vertical_offset_gleba",
+        order = "ps53",
+        setting_type = "startup",
+        default_value = 0.1,
+    },{
+        type = "double-setting",
+        name = "ps_surface_vertical_offset_fulgora",
+        order = "ps54",
+        setting_type = "startup",
+        default_value = 0.1,
+    },{
+        type = "double-setting",
+        name = "ps_surface_vertical_offset_aquilo",
+        order = "ps55",
+        setting_type = "startup",
+        default_value = 0.08,
+    },
+    -- cloud_vertical_offset
+    {
+        type = "double-setting",
+        name = "ps_cloud_vertical_offset_nauvis",
+        order = "ps61",
+        setting_type = "startup",
+        default_value = 0.015,
+    },{
+        type = "double-setting",
+        name = "ps_cloud_vertical_offset_vulcanus",
+        order = "ps62",
+        setting_type = "startup",
+        default_value = 0.05,
+    },{
+        type = "double-setting",
+        name = "ps_cloud_vertical_offset_gleba",
+        order = "ps63",
+        setting_type = "startup",
+        default_value = 0.05,
+    },{
+        type = "double-setting",
+        name = "ps_cloud_vertical_offset_fulgora",
+        order = "ps64",
+        setting_type = "startup",
+        default_value = 0.07,
+    },{
+        type = "double-setting",
+        name = "ps_cloud_vertical_offset_aquilo",
+        order = "ps65",
+        setting_type = "startup",
+        default_value = 0.01,
+    },
 })

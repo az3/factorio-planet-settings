@@ -1,6 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.1.1
+Date: 2026-06-25
+  Info:
+    - Planet Rotation, Atmosphere Color, Cloud Flow Intensity, Cloud Panning Rate, Surface Vertical Offset, Cloud Vertical Offset options are added.
+---------------------------------------------------------------------------------------------------
 Version: 2.1.0
 Date: 2026-06-24
-  Changes:
+  Info:
     - First release.
-    - Currently only cloudiness can be set, other options are being added...
+    - Currently only Cloudiness can be set, other options are being added...
