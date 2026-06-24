@@ -1,0 +1,13 @@
+{
+  "name": "planet-settings",
+  "version": "2.1.0",
+  "title": "Planet Settings",
+  "author": "cagricelebi",
+  "homepage": "https://github.com/az3/factorio-planet-settings",
+  "description": "Change planet background settings like cloudiness etc.",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base >= 2.1.0",
+    "space-age >= 2.1.0"
+  ]
+}
