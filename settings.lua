@@ -1,4 +1,12 @@
 data:extend({
+    -- replace nauvis with earth
+    {
+        type = "bool-setting",
+        name = "ps_nauvis_earth",
+        setting_type = "startup",
+        default_value = true,
+        order = "ps00",
+    },
     -- cloudiness
     {
         type = "double-setting",

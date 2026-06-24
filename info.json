@@ -1,10 +1,10 @@
 {
   "name": "planet-settings",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "title": "Planet Settings",
   "author": "cagricelebi",
   "homepage": "https://github.com/az3/factorio-planet-settings",
-  "description": "Change planet settings like cloudiness, rotation etc.",
+  "description": "Change planet settings like cloudiness, rotation, atmosphere color etc.",
   "factorio_version": "2.1",
   "dependencies": [
     "base >= 2.1.0",

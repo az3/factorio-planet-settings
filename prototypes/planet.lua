@@ -4,6 +4,16 @@ local gleba_pd = data.raw.planet["gleba"].platform_surface_render_parameters.pla
 local fulgora_pd = data.raw.planet["fulgora"].platform_surface_render_parameters.platform_backdrop
 local aquilo_pd = data.raw.planet["aquilo"].platform_surface_render_parameters.platform_backdrop
 
+-- ps_nauvis_earth
+local ps_nauvis_earth = settings.startup["ps_nauvis_earth"].value
+if ps_nauvis_earth then
+    nauvis_pd.planet_surface = {
+        filename = "__planet-settings__/graphics/nauvis-equirectangular.png",
+        width = 2048,
+        height = 1024
+    }
+end
+
 -- cloudiness
 local cloudiness_nauvis = settings.startup["ps_cloudiness_nauvis"].value
 local cloudiness_vulcanus = settings.startup["ps_cloudiness_vulcanus"].value
@@ -226,5 +236,3 @@ if aquilo_pd.cloud_vertical_offset ~= cloud_vertical_offset_aquilo then
     log("cloud_vertical_offset for aquilo " .. aquilo_pd.cloud_vertical_offset .. " -> " .. cloud_vertical_offset_aquilo .. ".")
     aquilo_pd.cloud_vertical_offset = cloud_vertical_offset_aquilo
 end
-
-
