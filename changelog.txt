@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.1.3
+Date: 2026-06-25
+  Info:
+    - Options added: planet_surface, planet_emission, emission_scales_with_shadow, cloudiness, rotation_seconds, atmosphere_color, cloud_flow_intensity, cloud_panning_rate, surface_vertical_offset, cloud_vertical_offset, light_radius, planet_axis, planet_axis_deviation_amplitude, light_direction, light_color, specular_color, specular_intensity.
+    - New images added for Earth (Day & Night), Jupiter, Moon, Sun, Venus images added from Solar System Scope and NASA.
+---------------------------------------------------------------------------------------------------
 Version: 2.1.2
 Date: 2026-06-25
   Info:
