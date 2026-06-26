@@ -94,6 +94,8 @@ else
 end
 if planet_emission_vulcanus == "default" then
     -- log("vulcanus planet_emission NOT updated.")
+elseif planet_emission_vulcanus == "disable" then
+    vulcanus_pd.planet_emission = nil
 else
     vulcanus_pd.planet_emission = {
         filename = "__planet-settings__/graphics/" .. planet_emission_vulcanus .. "-eqr.png",
@@ -132,6 +134,7 @@ else
     }
     log("aquilo planet_emission updated to " .. aquilo_pd.planet_emission.filename .. ".")
 end
+
 
 -- emission_scales_with_shadow
 nauvis_pd.emission_scales_with_shadow = settings.startup["ps_emission_scales_with_shadow_nauvis"].value

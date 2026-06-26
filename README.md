@@ -6,18 +6,20 @@ These entities have a lot of properties such as cloudiness, rotation seconds, at
 
 But the properties are not modifiable from the game menu, so I wrote this mod to tweak them.
 
-For example, the clouds are too dense in Fulgora, which makes it difficult to see the iconic Pentapod ~~anus~~ crater.
+For example, the clouds are too dense in Gleba, which makes it difficult to see the iconic Pentapod ~~anus~~ crater.
 
 So you can decrease cloudiness to 0.01 to see land more clearly.
 
 Also, you can replace planet textures with real Earth image from NASA or Solar System Scope.
 
 Sprites to choose:
-- Earth Night
 - Earth Day (Solar System Scope)
 - Earth NASA (a bit darker)
+- Earth Night
 - Jupiter
+- Mercury
 - Moon
+- Neptune
 - Sun
 - Venus
 
