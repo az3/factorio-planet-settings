@@ -1,6 +1,6 @@
 {
   "name": "planet-settings",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "title": "Planet Settings",
   "author": "cagricelebi",
   "homepage": "https://github.com/az3/factorio-planet-settings",
@@ -8,6 +8,6 @@
   "factorio_version": "2.1",
   "dependencies": [
     "base >= 2.1.0",
-    "space-age >= 2.1.0"
+    "space-age"
   ]
 }

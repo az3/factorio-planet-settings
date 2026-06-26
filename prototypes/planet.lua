@@ -5,16 +5,17 @@ local fulgora_pd = data.raw.planet["fulgora"].platform_surface_render_parameters
 local aquilo_pd = data.raw.planet["aquilo"].platform_surface_render_parameters.platform_backdrop
 --[[
 nauvis_pd.planet_surface = {
-    filename = "__planet-settings__/graphics/earth-day-eqr.png",
+    filename = "__planet-settings__/graphics/earth-day-eqr.jpg",
     width = 4096,
     height = 2048
 }
 nauvis_pd.planet_emission = {
-    filename = "__planet-settings__/graphics/earth-night-eqr.png",
+    filename = "__planet-settings__/graphics/earth-night-eqr.jpg",
     width = 4096,
     height = 2048
 }
 nauvis_pd.emission_scales_with_shadow = true
+nauvis_pd.radius = 1200
 ]]
 
 -- planet_surface
@@ -28,7 +29,7 @@ if planet_surface_nauvis == "default" then
     -- log("nauvis planet_surface NOT updated.")
 else
     nauvis_pd.planet_surface = {
-        filename = "__planet-settings__/graphics/" .. planet_surface_nauvis .. "-eqr.png",
+        filename = "__planet-settings__/graphics/" .. planet_surface_nauvis .. "-eqr.jpg",
         width = 4096,
         height = 2048
     }
@@ -38,7 +39,7 @@ if planet_surface_vulcanus == "default" then
     -- log("vulcanus planet_surface NOT updated.")
 else
     vulcanus_pd.planet_surface = {
-        filename = "__planet-settings__/graphics/" .. planet_surface_vulcanus .. "-eqr.png",
+        filename = "__planet-settings__/graphics/" .. planet_surface_vulcanus .. "-eqr.jpg",
         width = 4096,
         height = 2048
     }
@@ -48,7 +49,7 @@ if planet_surface_gleba == "default" then
     -- log("gleba planet_surface NOT updated.")
 else
     gleba_pd.planet_surface = {
-        filename = "__planet-settings__/graphics/" .. planet_surface_gleba .. "-eqr.png",
+        filename = "__planet-settings__/graphics/" .. planet_surface_gleba .. "-eqr.jpg",
         width = 4096,
         height = 2048
     }
@@ -58,7 +59,7 @@ if planet_surface_fulgora == "default" then
     -- log("fulgora planet_surface NOT updated.")
 else
     fulgora_pd.planet_surface = {
-        filename = "__planet-settings__/graphics/" .. planet_surface_fulgora .. "-eqr.png",
+        filename = "__planet-settings__/graphics/" .. planet_surface_fulgora .. "-eqr.jpg",
         width = 4096,
         height = 2048
     }
@@ -68,7 +69,7 @@ if planet_surface_aquilo == "default" then
     -- log("aquilo planet_surface NOT updated.")
 else
     aquilo_pd.planet_surface = {
-        filename = "__planet-settings__/graphics/" .. planet_surface_aquilo .. "-eqr.png",
+        filename = "__planet-settings__/graphics/" .. planet_surface_aquilo .. "-eqr.jpg",
         width = 4096,
         height = 2048
     }
@@ -84,9 +85,12 @@ local planet_emission_aquilo = settings.startup["ps_planet_emission_aquilo"].val
 
 if planet_emission_nauvis == "default" then
     -- log("nauvis planet_emission NOT updated.")
+elseif planet_emission_nauvis == "disable" then
+    nauvis_pd.planet_emission = nil
+    log("nauvis planet_emission disabled.")
 else
     nauvis_pd.planet_emission = {
-        filename = "__planet-settings__/graphics/" .. planet_emission_nauvis .. "-eqr.png",
+        filename = "__planet-settings__/graphics/" .. planet_emission_nauvis .. "-eqr.jpg",
         width = 4096,
         height = 2048
     }
@@ -96,9 +100,10 @@ if planet_emission_vulcanus == "default" then
     -- log("vulcanus planet_emission NOT updated.")
 elseif planet_emission_vulcanus == "disable" then
     vulcanus_pd.planet_emission = nil
+    log("vulcanus planet_emission disabled.")
 else
     vulcanus_pd.planet_emission = {
-        filename = "__planet-settings__/graphics/" .. planet_emission_vulcanus .. "-eqr.png",
+        filename = "__planet-settings__/graphics/" .. planet_emission_vulcanus .. "-eqr.jpg",
         width = 4096,
         height = 2048
     }
@@ -106,9 +111,12 @@ else
 end
 if planet_emission_gleba == "default" then
     -- log("gleba planet_emission NOT updated.")
+elseif planet_emission_gleba == "disable" then
+    gleba_pd.planet_emission = nil
+    log("gleba planet_emission disabled.")
 else
     gleba_pd.planet_emission = {
-        filename = "__planet-settings__/graphics/" .. planet_emission_gleba .. "-eqr.png",
+        filename = "__planet-settings__/graphics/" .. planet_emission_gleba .. "-eqr.jpg",
         width = 4096,
         height = 2048
     }
@@ -116,9 +124,12 @@ else
 end
 if planet_emission_fulgora == "default" then
     -- log("fulgora planet_emission NOT updated.")
+elseif planet_emission_fulgora == "disable" then
+    fulgora_pd.planet_emission = nil
+    log("fulgora planet_emission disabled.")
 else
     fulgora_pd.planet_emission = {
-        filename = "__planet-settings__/graphics/" .. planet_emission_fulgora .. "-eqr.png",
+        filename = "__planet-settings__/graphics/" .. planet_emission_fulgora .. "-eqr.jpg",
         width = 4096,
         height = 2048
     }
@@ -126,15 +137,17 @@ else
 end
 if planet_emission_aquilo == "default" then
     -- log("aquilo planet_emission NOT updated.")
+elseif planet_emission_aquilo == "disable" then
+    aquilo_pd.planet_emission = nil
+    log("aquilo planet_emission disabled.")
 else
     aquilo_pd.planet_emission = {
-        filename = "__planet-settings__/graphics/" .. planet_emission_aquilo .. "-eqr.png",
+        filename = "__planet-settings__/graphics/" .. planet_emission_aquilo .. "-eqr.jpg",
         width = 4096,
         height = 2048
     }
     log("aquilo planet_emission updated to " .. aquilo_pd.planet_emission.filename .. ".")
 end
-
 
 -- emission_scales_with_shadow
 nauvis_pd.emission_scales_with_shadow = settings.startup["ps_emission_scales_with_shadow_nauvis"].value
@@ -142,6 +155,79 @@ vulcanus_pd.emission_scales_with_shadow = settings.startup["ps_emission_scales_w
 gleba_pd.emission_scales_with_shadow = settings.startup["ps_emission_scales_with_shadow_gleba"].value
 fulgora_pd.emission_scales_with_shadow = settings.startup["ps_emission_scales_with_shadow_fulgora"].value
 aquilo_pd.emission_scales_with_shadow = settings.startup["ps_emission_scales_with_shadow_aquilo"].value
+
+-- planet_reflectivity
+local planet_reflectivity_nauvis = settings.startup["ps_planet_reflectivity_nauvis"].value
+local planet_reflectivity_vulcanus = settings.startup["ps_planet_reflectivity_vulcanus"].value
+local planet_reflectivity_gleba = settings.startup["ps_planet_reflectivity_gleba"].value
+local planet_reflectivity_fulgora = settings.startup["ps_planet_reflectivity_fulgora"].value
+local planet_reflectivity_aquilo = settings.startup["ps_planet_reflectivity_aquilo"].value
+
+if planet_reflectivity_nauvis == "default" then
+    -- log("nauvis planet_reflectivity NOT updated.")
+elseif planet_reflectivity_nauvis == "disable" then
+    nauvis_pd.planet_reflectivity = nil
+    log("nauvis planet_reflectivity disabled.")
+else
+    nauvis_pd.planet_reflectivity = {
+        filename = "__planet-settings__/graphics/" .. planet_reflectivity_nauvis .. "-eqr.jpg",
+        width = 4096,
+        height = 2048
+    }
+    log("nauvis planet_reflectivity updated to " .. nauvis_pd.planet_reflectivity.filename .. ".")
+end
+if planet_reflectivity_vulcanus == "default" then
+    -- log("vulcanus planet_reflectivity NOT updated.")
+elseif planet_reflectivity_vulcanus == "disable" then
+    vulcanus_pd.planet_reflectivity = nil
+    log("vulcanus planet_reflectivity disabled.")
+else
+    vulcanus_pd.planet_reflectivity = {
+        filename = "__planet-settings__/graphics/" .. planet_reflectivity_vulcanus .. "-eqr.jpg",
+        width = 4096,
+        height = 2048
+    }
+    log("vulcanus planet_reflectivity updated to " .. vulcanus_pd.planet_reflectivity.filename .. ".")
+end
+if planet_reflectivity_gleba == "default" then
+    -- log("gleba planet_reflectivity NOT updated.")
+elseif planet_reflectivity_gleba == "disable" then
+    gleba_pd.planet_reflectivity = nil
+    log("gleba planet_reflectivity disabled.")
+else
+    gleba_pd.planet_reflectivity = {
+        filename = "__planet-settings__/graphics/" .. planet_reflectivity_gleba .. "-eqr.jpg",
+        width = 4096,
+        height = 2048
+    }
+    log("gleba planet_reflectivity updated to " .. gleba_pd.planet_reflectivity.filename .. ".")
+end
+if planet_reflectivity_fulgora == "default" then
+    -- log("fulgora planet_reflectivity NOT updated.")
+elseif planet_reflectivity_fulgora == "disable" then
+    fulgora_pd.planet_reflectivity = nil
+    log("fulgora planet_reflectivity disabled.")
+else
+    fulgora_pd.planet_reflectivity = {
+        filename = "__planet-settings__/graphics/" .. planet_reflectivity_fulgora .. "-eqr.jpg",
+        width = 4096,
+        height = 2048
+    }
+    log("fulgora planet_reflectivity updated to " .. fulgora_pd.planet_reflectivity.filename .. ".")
+end
+if planet_reflectivity_aquilo == "default" then
+    -- log("aquilo planet_reflectivity NOT updated.")
+elseif planet_reflectivity_aquilo == "disable" then
+    aquilo_pd.planet_reflectivity = nil
+    log("aquilo planet_reflectivity disabled.")
+else
+    aquilo_pd.planet_reflectivity = {
+        filename = "__planet-settings__/graphics/" .. planet_reflectivity_aquilo .. "-eqr.jpg",
+        width = 4096,
+        height = 2048
+    }
+    log("aquilo planet_reflectivity updated to " .. aquilo_pd.planet_reflectivity.filename .. ".")
+end
 
 -- cloudiness
 local cloudiness_nauvis = settings.startup["ps_cloudiness_nauvis"].value
@@ -168,6 +254,79 @@ end
 if aquilo_pd.cloudiness ~= cloudiness_aquilo then
     log("cloudiness for aquilo " .. aquilo_pd.cloudiness .. " -> " .. cloudiness_aquilo .. ".")
     aquilo_pd.cloudiness = cloudiness_aquilo
+end
+
+-- planet_normal
+local planet_normal_nauvis = settings.startup["ps_planet_normal_nauvis"].value
+local planet_normal_vulcanus = settings.startup["ps_planet_normal_vulcanus"].value
+local planet_normal_gleba = settings.startup["ps_planet_normal_gleba"].value
+local planet_normal_fulgora = settings.startup["ps_planet_normal_fulgora"].value
+local planet_normal_aquilo = settings.startup["ps_planet_normal_aquilo"].value
+
+if planet_normal_nauvis == "default" then
+    -- log("nauvis planet_normal NOT updated.")
+elseif planet_normal_nauvis == "disable" then
+    nauvis_pd.planet_normal = nil
+    log("nauvis planet_normal disabled.")
+else
+    nauvis_pd.planet_normal = {
+        filename = "__planet-settings__/graphics/" .. planet_normal_nauvis .. "-eqr.jpg",
+        width = 4096,
+        height = 2048
+    }
+    log("nauvis planet_normal updated to " .. nauvis_pd.planet_normal.filename .. ".")
+end
+if planet_normal_vulcanus == "default" then
+    -- log("vulcanus planet_normal NOT updated.")
+elseif planet_normal_vulcanus == "disable" then
+    vulcanus_pd.planet_normal = nil
+    log("vulcanus planet_normal disabled.")
+else
+    vulcanus_pd.planet_normal = {
+        filename = "__planet-settings__/graphics/" .. planet_normal_vulcanus .. "-eqr.jpg",
+        width = 4096,
+        height = 2048
+    }
+    log("vulcanus planet_normal updated to " .. vulcanus_pd.planet_normal.filename .. ".")
+end
+if planet_normal_gleba == "default" then
+    -- log("gleba planet_normal NOT updated.")
+elseif planet_normal_gleba == "disable" then
+    gleba_pd.planet_normal = nil
+    log("gleba planet_normal disabled.")
+else
+    gleba_pd.planet_normal = {
+        filename = "__planet-settings__/graphics/" .. planet_normal_gleba .. "-eqr.jpg",
+        width = 4096,
+        height = 2048
+    }
+    log("gleba planet_normal updated to " .. gleba_pd.planet_normal.filename .. ".")
+end
+if planet_normal_fulgora == "default" then
+    -- log("fulgora planet_normal NOT updated.")
+elseif planet_normal_fulgora == "disable" then
+    fulgora_pd.planet_normal = nil
+    log("fulgora planet_normal disabled.")
+else
+    fulgora_pd.planet_normal = {
+        filename = "__planet-settings__/graphics/" .. planet_normal_fulgora .. "-eqr.jpg",
+        width = 4096,
+        height = 2048
+    }
+    log("fulgora planet_normal updated to " .. fulgora_pd.planet_normal.filename .. ".")
+end
+if planet_normal_aquilo == "default" then
+    -- log("aquilo planet_normal NOT updated.")
+elseif planet_normal_aquilo == "disable" then
+    aquilo_pd.planet_normal = nil
+    log("aquilo planet_normal disabled.")
+else
+    aquilo_pd.planet_normal = {
+        filename = "__planet-settings__/graphics/" .. planet_normal_aquilo .. "-eqr.jpg",
+        width = 4096,
+        height = 2048
+    }
+    log("aquilo planet_normal updated to " .. aquilo_pd.planet_normal.filename .. ".")
 end
 
 -- rotation_seconds
@@ -470,6 +629,44 @@ if aquilo_pd.planet_axis_deviation_amplitude ~= planet_axis_deviation_amplitude_
     aquilo_pd.planet_axis_deviation_amplitude = planet_axis_deviation_amplitude_aquilo
 end
 
+-- planet_axis_deviation_seconds
+local planet_axis_deviation_seconds_nauvis = helpers.json_to_table("[" .. settings.startup["ps_planet_axis_deviation_seconds_nauvis"].value .. "]")
+local planet_axis_deviation_seconds_vulcanus = helpers.json_to_table("[" .. settings.startup["ps_planet_axis_deviation_seconds_vulcanus"].value .. "]")
+local planet_axis_deviation_seconds_gleba = helpers.json_to_table("[" .. settings.startup["ps_planet_axis_deviation_seconds_gleba"].value .. "]")
+local planet_axis_deviation_seconds_fulgora = helpers.json_to_table("[" .. settings.startup["ps_planet_axis_deviation_seconds_fulgora"].value .. "]")
+local planet_axis_deviation_seconds_aquilo = helpers.json_to_table("[" .. settings.startup["ps_planet_axis_deviation_seconds_aquilo"].value .. "]")
+
+if nauvis_pd.planet_axis_deviation_seconds ~= planet_axis_deviation_seconds_nauvis then
+    log("planet_axis_deviation_seconds for nauvis {"
+            .. nauvis_pd.planet_axis_deviation_seconds[1] .. "," .. nauvis_pd.planet_axis_deviation_seconds[2] .. "} -> {"
+            .. planet_axis_deviation_seconds_nauvis[1] .. "," .. planet_axis_deviation_seconds_nauvis[2] .. "}.")
+    nauvis_pd.planet_axis_deviation_seconds = planet_axis_deviation_seconds_nauvis
+end
+if vulcanus_pd.planet_axis_deviation_seconds ~= planet_axis_deviation_seconds_vulcanus then
+    log("planet_axis_deviation_seconds for vulcanus {"
+            .. vulcanus_pd.planet_axis_deviation_seconds[1] .. "," .. vulcanus_pd.planet_axis_deviation_seconds[2] .. "} -> {"
+            .. planet_axis_deviation_seconds_vulcanus[1] .. "," .. planet_axis_deviation_seconds_vulcanus[2] .. "}.")
+    vulcanus_pd.planet_axis_deviation_seconds = planet_axis_deviation_seconds_vulcanus
+end
+if gleba_pd.planet_axis_deviation_seconds ~= planet_axis_deviation_seconds_gleba then
+    log("planet_axis_deviation_seconds for gleba {"
+            .. gleba_pd.planet_axis_deviation_seconds[1] .. "," .. gleba_pd.planet_axis_deviation_seconds[2] .. "} -> {"
+            .. planet_axis_deviation_seconds_gleba[1] .. "," .. planet_axis_deviation_seconds_gleba[2] .. "}.")
+    gleba_pd.planet_axis_deviation_seconds = planet_axis_deviation_seconds_gleba
+end
+if fulgora_pd.planet_axis_deviation_seconds ~= planet_axis_deviation_seconds_fulgora then
+    log("planet_axis_deviation_seconds for fulgora {"
+            .. fulgora_pd.planet_axis_deviation_seconds[1] .. "," .. fulgora_pd.planet_axis_deviation_seconds[2] .. "} -> {"
+            .. planet_axis_deviation_seconds_fulgora[1] .. "," .. planet_axis_deviation_seconds_fulgora[2] .. "}.")
+    fulgora_pd.planet_axis_deviation_seconds = planet_axis_deviation_seconds_fulgora
+end
+if aquilo_pd.planet_axis_deviation_seconds ~= planet_axis_deviation_seconds_aquilo then
+    log("planet_axis_deviation_seconds for aquilo {"
+            .. aquilo_pd.planet_axis_deviation_seconds[1] .. "," .. aquilo_pd.planet_axis_deviation_seconds[2] .. "} -> {"
+            .. planet_axis_deviation_seconds_aquilo[1] .. "," .. planet_axis_deviation_seconds_aquilo[2] .. "}.")
+    aquilo_pd.planet_axis_deviation_seconds = planet_axis_deviation_seconds_aquilo
+end
+
 -- light_direction
 local light_direction_nauvis = helpers.json_to_table("[" .. settings.startup["ps_light_direction_nauvis"].value .. "]")
 local light_direction_vulcanus = helpers.json_to_table("[" .. settings.startup["ps_light_direction_vulcanus"].value .. "]")
@@ -604,4 +801,137 @@ if aquilo_pd.specular_intensity ~= specular_intensity_aquilo then
     aquilo_pd.specular_intensity = specular_intensity_aquilo
 end
 
+-- radius
+local radius_nauvis = settings.startup["ps_radius_nauvis"].value
+local radius_vulcanus = settings.startup["ps_radius_vulcanus"].value
+local radius_gleba = settings.startup["ps_radius_gleba"].value
+local radius_fulgora = settings.startup["ps_radius_fulgora"].value
+local radius_aquilo = settings.startup["ps_radius_aquilo"].value
+
+if nauvis_pd.radius ~= radius_nauvis then
+    log("radius for nauvis " .. nauvis_pd.radius .. " -> " .. radius_nauvis .. ".")
+    nauvis_pd.radius = radius_nauvis
+end
+if vulcanus_pd.radius ~= radius_vulcanus then
+    log("radius for vulcanus " .. vulcanus_pd.radius .. " -> " .. radius_vulcanus .. ".")
+    vulcanus_pd.radius = radius_vulcanus
+end
+if gleba_pd.radius ~= radius_gleba then
+    log("radius for gleba " .. gleba_pd.radius .. " -> " .. radius_gleba .. ".")
+    gleba_pd.radius = radius_gleba
+end
+if fulgora_pd.radius ~= radius_fulgora then
+    log("radius for fulgora " .. fulgora_pd.radius .. " -> " .. radius_fulgora .. ".")
+    fulgora_pd.radius = radius_fulgora
+end
+if aquilo_pd.radius ~= radius_aquilo then
+    log("radius for aquilo " .. aquilo_pd.radius .. " -> " .. radius_aquilo .. ".")
+    aquilo_pd.radius = radius_aquilo
+end
+
+-- light_intensity_contrast
+local light_intensity_contrast_nauvis = settings.startup["ps_light_intensity_contrast_nauvis"].value
+local light_intensity_contrast_vulcanus = settings.startup["ps_light_intensity_contrast_vulcanus"].value
+local light_intensity_contrast_gleba = settings.startup["ps_light_intensity_contrast_gleba"].value
+local light_intensity_contrast_fulgora = settings.startup["ps_light_intensity_contrast_fulgora"].value
+local light_intensity_contrast_aquilo = settings.startup["ps_light_intensity_contrast_aquilo"].value
+
+if nauvis_pd.light_intensity_contrast ~= light_intensity_contrast_nauvis then
+    log("light_intensity_contrast for nauvis " .. nauvis_pd.light_intensity_contrast .. " -> " .. light_intensity_contrast_nauvis .. ".")
+    nauvis_pd.light_intensity_contrast = light_intensity_contrast_nauvis
+end
+if vulcanus_pd.light_intensity_contrast ~= light_intensity_contrast_vulcanus then
+    log("light_intensity_contrast for vulcanus " .. vulcanus_pd.light_intensity_contrast .. " -> " .. light_intensity_contrast_vulcanus .. ".")
+    vulcanus_pd.light_intensity_contrast = light_intensity_contrast_vulcanus
+end
+if gleba_pd.light_intensity_contrast ~= light_intensity_contrast_gleba then
+    log("light_intensity_contrast for gleba " .. gleba_pd.light_intensity_contrast .. " -> " .. light_intensity_contrast_gleba .. ".")
+    gleba_pd.light_intensity_contrast = light_intensity_contrast_gleba
+end
+if fulgora_pd.light_intensity_contrast ~= light_intensity_contrast_fulgora then
+    log("light_intensity_contrast for fulgora " .. fulgora_pd.light_intensity_contrast .. " -> " .. light_intensity_contrast_fulgora .. ".")
+    fulgora_pd.light_intensity_contrast = light_intensity_contrast_fulgora
+end
+if aquilo_pd.light_intensity_contrast ~= light_intensity_contrast_aquilo then
+    log("light_intensity_contrast for aquilo " .. aquilo_pd.light_intensity_contrast .. " -> " .. light_intensity_contrast_aquilo .. ".")
+    aquilo_pd.light_intensity_contrast = light_intensity_contrast_aquilo
+end
+
+-- position
+local position_nauvis = helpers.json_to_table("[" .. settings.startup["ps_position_nauvis"].value .. "]")
+local position_vulcanus = helpers.json_to_table("[" .. settings.startup["ps_position_vulcanus"].value .. "]")
+local position_gleba = helpers.json_to_table("[" .. settings.startup["ps_position_gleba"].value .. "]")
+local position_fulgora = helpers.json_to_table("[" .. settings.startup["ps_position_fulgora"].value .. "]")
+local position_aquilo = helpers.json_to_table("[" .. settings.startup["ps_position_aquilo"].value .. "]")
+
+if nauvis_pd.position ~= position_nauvis then
+    log("position for nauvis {"
+            .. nauvis_pd.position[1] .. "," .. nauvis_pd.position[2] .. "} -> {"
+            .. position_nauvis[1] .. "," .. position_nauvis[2] .. "}.")
+    nauvis_pd.position = position_nauvis
+end
+if vulcanus_pd.position ~= position_vulcanus then
+    log("position for vulcanus {"
+            .. vulcanus_pd.position[1] .. "," .. vulcanus_pd.position[2] .. "} -> {"
+            .. position_vulcanus[1] .. "," .. position_vulcanus[2] .. "}.")
+    vulcanus_pd.position = position_vulcanus
+end
+if gleba_pd.position ~= position_gleba then
+    log("position for gleba {"
+            .. gleba_pd.position[1] .. "," .. gleba_pd.position[2] .. "} -> {"
+            .. position_gleba[1] .. "," .. position_gleba[2] .. "}.")
+    gleba_pd.position = position_gleba
+end
+if fulgora_pd.position ~= position_fulgora then
+    log("position for fulgora {"
+            .. fulgora_pd.position[1] .. "," .. fulgora_pd.position[2] .. "} -> {"
+            .. position_fulgora[1] .. "," .. position_fulgora[2] .. "}.")
+    fulgora_pd.position = position_fulgora
+end
+if aquilo_pd.position ~= position_aquilo then
+    log("position for aquilo {"
+            .. aquilo_pd.position[1] .. "," .. aquilo_pd.position[2] .. "} -> {"
+            .. position_aquilo[1] .. "," .. position_aquilo[2] .. "}.")
+    aquilo_pd.position = position_aquilo
+end
+
+-- parallax_strength
+local parallax_strength_nauvis = helpers.json_to_table("[" .. settings.startup["ps_parallax_strength_nauvis"].value .. "]")
+local parallax_strength_vulcanus = helpers.json_to_table("[" .. settings.startup["ps_parallax_strength_vulcanus"].value .. "]")
+local parallax_strength_gleba = helpers.json_to_table("[" .. settings.startup["ps_parallax_strength_gleba"].value .. "]")
+local parallax_strength_fulgora = helpers.json_to_table("[" .. settings.startup["ps_parallax_strength_fulgora"].value .. "]")
+local parallax_strength_aquilo = helpers.json_to_table("[" .. settings.startup["ps_parallax_strength_aquilo"].value .. "]")
+
+if nauvis_pd.parallax_strength ~= parallax_strength_nauvis then
+    log("parallax_strength for nauvis {"
+            .. nauvis_pd.parallax_strength[1] .. "," .. nauvis_pd.parallax_strength[2] .. "} -> {"
+            .. parallax_strength_nauvis[1] .. "," .. parallax_strength_nauvis[2] .. "}.")
+    nauvis_pd.parallax_strength = parallax_strength_nauvis
+end
+if vulcanus_pd.parallax_strength ~= parallax_strength_vulcanus then
+    log("parallax_strength for vulcanus {"
+            .. vulcanus_pd.parallax_strength[1] .. "," .. vulcanus_pd.parallax_strength[2] .. "} -> {"
+            .. parallax_strength_vulcanus[1] .. "," .. parallax_strength_vulcanus[2] .. "}.")
+    vulcanus_pd.parallax_strength = parallax_strength_vulcanus
+end
+if gleba_pd.parallax_strength ~= parallax_strength_gleba then
+    log("parallax_strength for gleba {"
+            .. gleba_pd.parallax_strength[1] .. "," .. gleba_pd.parallax_strength[2] .. "} -> {"
+            .. parallax_strength_gleba[1] .. "," .. parallax_strength_gleba[2] .. "}.")
+    gleba_pd.parallax_strength = parallax_strength_gleba
+end
+if fulgora_pd.parallax_strength ~= parallax_strength_fulgora then
+    log("parallax_strength for fulgora {"
+            .. fulgora_pd.parallax_strength[1] .. "," .. fulgora_pd.parallax_strength[2] .. "} -> {"
+            .. parallax_strength_fulgora[1] .. "," .. parallax_strength_fulgora[2] .. "}.")
+    fulgora_pd.parallax_strength = parallax_strength_fulgora
+end
+if aquilo_pd.parallax_strength ~= parallax_strength_aquilo then
+    log("parallax_strength for aquilo {"
+            .. aquilo_pd.parallax_strength[1] .. "," .. aquilo_pd.parallax_strength[2] .. "} -> {"
+            .. parallax_strength_aquilo[1] .. "," .. parallax_strength_aquilo[2] .. "}.")
+    aquilo_pd.parallax_strength = parallax_strength_aquilo
+end
+
+-- log("nauvis_pd.emission_scalar: " .. nauvis_pd.emission_scalar)
 

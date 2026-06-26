@@ -105,6 +105,80 @@ data:extend({
         default_value = false,
         order = "ps00025",
     },
+    -- planet_reflectivity
+    {
+        type = "string-setting",
+        name = "ps_planet_reflectivity_nauvis",
+        setting_type = "startup",
+        default_value = "default",
+        allowed_values = { "default", "disable"},
+        order = "ps00031",
+    }, {
+        type = "string-setting",
+        name = "ps_planet_reflectivity_vulcanus",
+        setting_type = "startup",
+        default_value = "default",
+        allowed_values = { "default" },
+        order = "ps00032",
+    }, {
+        type = "string-setting",
+        name = "ps_planet_reflectivity_gleba",
+        setting_type = "startup",
+        default_value = "default",
+        allowed_values = { "default", "disable"},
+        order = "ps00033",
+    }, {
+        type = "string-setting",
+        name = "ps_planet_reflectivity_fulgora",
+        setting_type = "startup",
+        default_value = "default",
+        allowed_values = { "default", "disable"},
+        order = "ps00034",
+    }, {
+        type = "string-setting",
+        name = "ps_planet_reflectivity_aquilo",
+        setting_type = "startup",
+        default_value = "default",
+        allowed_values = { "default", "disable"},
+        order = "ps00035",
+    },
+    -- planet_normal
+    {
+        type = "string-setting",
+        name = "ps_planet_normal_nauvis",
+        setting_type = "startup",
+        default_value = "default",
+        allowed_values = { "default", "disable"},
+        order = "ps00041",
+    }, {
+        type = "string-setting",
+        name = "ps_planet_normal_vulcanus",
+        setting_type = "startup",
+        default_value = "default",
+        allowed_values = { "default" },
+        order = "ps00042",
+    }, {
+        type = "string-setting",
+        name = "ps_planet_normal_gleba",
+        setting_type = "startup",
+        default_value = "default",
+        allowed_values = { "default" },
+        order = "ps00043",
+    }, {
+        type = "string-setting",
+        name = "ps_planet_normal_fulgora",
+        setting_type = "startup",
+        default_value = "default",
+        allowed_values = { "default", "disable"},
+        order = "ps00044",
+    }, {
+        type = "string-setting",
+        name = "ps_planet_normal_aquilo",
+        setting_type = "startup",
+        default_value = "default",
+        allowed_values = { "default" },
+        order = "ps00045",
+    },
     -- cloudiness
     {
         type = "double-setting",
@@ -407,35 +481,66 @@ data:extend({
     {
         type = "string-setting",
         name = "ps_planet_axis_deviation_amplitude_nauvis",
-        order = "ps091",
+        order = "ps0901",
         setting_type = "startup",
         default_value = "10.0, 10.0",
     }, {
         type = "string-setting",
         name = "ps_planet_axis_deviation_amplitude_vulcanus",
-        order = "ps092",
+        order = "ps0902",
         setting_type = "startup",
         default_value = "10.0, 10.0",
     }, {
         type = "string-setting",
         name = "ps_planet_axis_deviation_amplitude_gleba",
-        order = "ps093",
+        order = "ps0903",
         setting_type = "startup",
         default_value = "10.0, 10.0",
     }, {
         type = "string-setting",
         name = "ps_planet_axis_deviation_amplitude_fulgora",
-        order = "ps094",
+        order = "ps0904",
         setting_type = "startup",
         default_value = "10.0, 10.0",
     }, {
         type = "string-setting",
         name = "ps_planet_axis_deviation_amplitude_aquilo",
-        order = "ps095",
+        order = "ps0905",
         setting_type = "startup",
         default_value = "10.0, 10.0",
     },
-
+    -- planet_axis_deviation_seconds
+    {
+        type = "string-setting",
+        name = "ps_planet_axis_deviation_seconds_nauvis",
+        order = "ps0911",
+        setting_type = "startup",
+        default_value = "890.5, 753.7",
+    }, {
+        type = "string-setting",
+        name = "ps_planet_axis_deviation_seconds_vulcanus",
+        order = "ps0912",
+        setting_type = "startup",
+        default_value = "382.1888412, 323.4764",
+    }, {
+        type = "string-setting",
+        name = "ps_planet_axis_deviation_seconds_gleba",
+        order = "ps0913",
+        setting_type = "startup",
+        default_value = "1484.16666, 1256.16666",
+    }, {
+        type = "string-setting",
+        name = "ps_planet_axis_deviation_seconds_fulgora",
+        order = "ps0914",
+        setting_type = "startup",
+        default_value = "494.72222, 418.72222",
+    }, {
+        type = "string-setting",
+        name = "ps_planet_axis_deviation_seconds_aquilo",
+        order = "ps0915",
+        setting_type = "startup",
+        default_value = "1978.8888, 1674.8888",
+    },
     -- light_direction x,y,z
     {
         type = "string-setting",
@@ -564,6 +669,132 @@ data:extend({
         setting_type = "startup",
         default_value = 1,
     },
-
-
+    -- radius
+    {
+        type = "double-setting",
+        name = "ps_radius_nauvis",
+        order = "ps141",
+        setting_type = "startup",
+        default_value = 600,
+    }, {
+        type = "double-setting",
+        name = "ps_radius_vulcanus",
+        order = "ps142",
+        setting_type = "startup",
+        default_value = 772,
+    }, {
+        type = "double-setting",
+        name = "ps_radius_gleba",
+        order = "ps143",
+        setting_type = "startup",
+        default_value = 680,
+    }, {
+        type = "double-setting",
+        name = "ps_radius_fulgora",
+        order = "ps144",
+        setting_type = "startup",
+        default_value = 420,
+    }, {
+        type = "double-setting",
+        name = "ps_radius_aquilo",
+        order = "ps145",
+        setting_type = "startup",
+        default_value = 750,
+    },
+    -- light_intensity_contrast
+    {
+        type = "double-setting",
+        name = "ps_light_intensity_contrast_nauvis",
+        order = "ps151",
+        setting_type = "startup",
+        default_value = 0.3,
+    }, {
+        type = "double-setting",
+        name = "ps_light_intensity_contrast_vulcanus",
+        order = "ps152",
+        setting_type = "startup",
+        default_value = 0.3,
+    }, {
+        type = "double-setting",
+        name = "ps_light_intensity_contrast_gleba",
+        order = "ps153",
+        setting_type = "startup",
+        default_value = 0.3,
+    }, {
+        type = "double-setting",
+        name = "ps_light_intensity_contrast_fulgora",
+        order = "ps154",
+        setting_type = "startup",
+        default_value = 0.3,
+    }, {
+        type = "double-setting",
+        name = "ps_light_intensity_contrast_aquilo",
+        order = "ps155",
+        setting_type = "startup",
+        default_value = 0.3,
+    },
+    -- position
+    {
+        type = "string-setting",
+        name = "ps_position_nauvis",
+        order = "ps161",
+        setting_type = "startup",
+        default_value = "-680, 601",
+    }, {
+        type = "string-setting",
+        name = "ps_position_vulcanus",
+        order = "ps162",
+        setting_type = "startup",
+        default_value = "-680, 601",
+    }, {
+        type = "string-setting",
+        name = "ps_position_gleba",
+        order = "ps163",
+        setting_type = "startup",
+        default_value = "-680, 601",
+    }, {
+        type = "string-setting",
+        name = "ps_position_fulgora",
+        order = "ps164",
+        setting_type = "startup",
+        default_value = "-400, 270",
+    }, {
+        type = "string-setting",
+        name = "ps_position_aquilo",
+        order = "ps165",
+        setting_type = "startup",
+        default_value = "-680, 601",
+    },
+    -- parallax_strength
+    {
+        type = "string-setting",
+        name = "ps_parallax_strength_nauvis",
+        order = "ps171",
+        setting_type = "startup",
+        default_value = "0.95, 0.95",
+    }, {
+        type = "string-setting",
+        name = "ps_parallax_strength_vulcanus",
+        order = "ps172",
+        setting_type = "startup",
+        default_value = "0.95, 0.95",
+    }, {
+        type = "string-setting",
+        name = "ps_parallax_strength_gleba",
+        order = "ps173",
+        setting_type = "startup",
+        default_value = "0.95, 0.95",
+    }, {
+        type = "string-setting",
+        name = "ps_parallax_strength_fulgora",
+        order = "ps174",
+        setting_type = "startup",
+        default_value = "0.95, 0.95",
+    }, {
+        type = "string-setting",
+        name = "ps_parallax_strength_aquilo",
+        order = "ps175",
+        setting_type = "startup",
+        default_value = "0.95, 0.95",
+    },
 })

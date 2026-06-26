@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.1.5
+Date: 2026-06-26
+  Info:
+    - Reduced image sizes by using jpg.
+    - Added more options: light_intensity_contrast, parallax_strength, planet_axis_deviation_seconds, planet_normal, planet_reflectivity, position, radius.
+    - There might be a conflict with "Visible Planets in Space" mod, because it disables/removes the entities this mod is altering.
+---------------------------------------------------------------------------------------------------
 Version: 2.1.4
 Date: 2026-06-25
   Info:
